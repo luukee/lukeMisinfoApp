@@ -1,16 +1,21 @@
+import { Provider as StateProvider } from 'react-redux';
+
+import RootRoute from './src/routes/root.routes'
+import store from './src/redux/store';
+
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-import Button from './components/Button';
-import ImageViewer from './components/ImageViewer';
+import Button from './src/components/Button';
+import ImageViewer from './src/components/ImageViewer';
 import * as ImagePicker from 'expo-image-picker';
-import CircleButton from './components/CircleButton';
-import IconButton from './components/IconButton';
+import CircleButton from './src/components/CircleButton';
+import IconButton from './src/components/IconButton';
 
-import EmojiPicker from "./components/EmojiPicker";
-import EmojiList from './components/EmojiList';
-import EmojiSticker from './components/EmojiSticker';
+import EmojiPicker from "./src/components/EmojiPicker";
+import EmojiList from './src/components/EmojiList';
+import EmojiSticker from './src/components/EmojiSticker';
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
