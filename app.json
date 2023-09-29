@@ -2,8 +2,6 @@
   "expo": {
     "name": "lukeMisinfoApp",
     "slug": "lukeMisinfoApp",
-    "entryPoint": "./src/app/index.js",
-    "scheme": "your-app-scheme",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -43,7 +41,8 @@
         {
           "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
         }
-      ]
+      ],
+      "expo-build-properties"
     ],
     "extra": {
       "router": {
