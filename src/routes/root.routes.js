@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AuthRoute from "./auth.routes";
 import AppRoute from "./app.routes";
 import { View } from "react-native";
-import { getResponsiveWidth } from "../utils/responsiveDimensions.utils";
+// import { getResponsiveWidth } from "../utils/responsiveDimensions.utils";
 import MImage from "../components/MImage";
 import UtilityMethods from "../utils/UtilityMethods";
 import CommonDataManager from "../firebase/Singleton";
