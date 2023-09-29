@@ -2,10 +2,11 @@
 
 import React from "react";
 import firestore from "@react-native-firebase/firestore";
-import auth from "@react-native-firebase/auth";
-import storage from "@react-native-firebase/storage";
+// import auth from "@react-native-firebase/auth";
+import { auth } from "@firebase/auth";
+// import storage from "@react-native-firebase/storage";
 import { Platform } from "react-native";
-
+import { storage } from "@firebase/storage";
 //================================ Local Imported Files ====================================== //
 
 class firebaseServices {

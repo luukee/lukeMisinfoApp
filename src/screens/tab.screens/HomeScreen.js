@@ -8,7 +8,7 @@ import {
   FlatList,
   Platform,
   TouchableOpacity,
-  PermissionsAndroid
+  // PermissionsAndroid
 } from "react-native";
 import { useSelector } from "react-redux";
 import MButton from "../../components/MButton";
@@ -28,7 +28,8 @@ import auth from "@react-native-firebase/auth";
 import { useIsFocused } from "@react-navigation/native";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import Geolocation, { GeoPosition } from 'react-native-geolocation-service';
+// import Geolocation, { GeoPosition } from 'react-native-geolocation-service';
+import * as Location from 'expo-location';
 
 export default ({ navigation }) => {
   const { colorInfo } = useSelector((state) => state.Theme);
@@ -75,7 +76,7 @@ export default ({ navigation }) => {
         Alert.alert('Unable to open settings');
       });
     };
-    const status = await Geolocation.requestAuthorization('whenInUse');
+    const status = await Location.requestAuthorization('whenInUse');
 
     if (status === 'granted') {
       setHaslocation(true);
@@ -112,33 +113,33 @@ export default ({ navigation }) => {
       return true;
     }
 
-    const hasPermission = await PermissionsAndroid.check(
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-    );
+    // const hasPermission = await PermissionsAndroid.check(
+    //   PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    // );
 
     if (hasPermission) {
       return true;
     }
 
-    const status = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-    );
+    // const status = await PermissionsAndroid.request(
+    //   PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    // );
 
-    if (status === PermissionsAndroid.RESULTS.GRANTED) {
-      return true;
-    }
+    // if (status === PermissionsAndroid.RESULTS.GRANTED) {
+    //   return true;
+    // }
 
-    if (status === PermissionsAndroid.RESULTS.DENIED) {
-      ToastAndroid.show(
-        'Location permission denied by user.',
-        ToastAndroid.LONG,
-      );
-    } else if (status === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
-      ToastAndroid.show(
-        'Location permission revoked by user.',
-        ToastAndroid.LONG,
-      );
-    }
+    // if (status === PermissionsAndroid.RESULTS.DENIED) {
+    //   ToastAndroid.show(
+    //     'Location permission denied by user.',
+    //     ToastAndroid.LONG,
+    //   );
+    // } else if (status === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
+    //   ToastAndroid.show(
+    //     'Location permission revoked by user.',
+    //     ToastAndroid.LONG,
+    //   );
+    // }
 
     return false;
   };
@@ -151,7 +152,7 @@ export default ({ navigation }) => {
       return;
     }
     
-    Geolocation.getCurrentPosition(
+    Location.getCurrentPosition(
       position => {
         // setLocation(position);
         setLatitude(position.coords.latitude)
